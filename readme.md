@@ -5,9 +5,7 @@ Introducing "CodeChirps" - bite-sized code snippets for every digital nest build
 ### GiggleSearch
 If you ever feel the need to reinvent the wheel and build your own  search engine for giggles, don't sweat it! Just use Google's API and  call it "GiggleSearch"! Voila! 😂🔍 Here's how: #Googleception  #RecursionFTW #buildinpublic 
 
-```
-<?php
-
+```php
 // Google search endpoint
 $endPoint = "https://www.googleapis.com/customsearch/v1";
 
@@ -31,6 +29,4 @@ $result = json_decode(file_get_contents($url));
 
 // Dump the result
 print_r($result);
-
-?>
 ```
