@@ -2,6 +2,40 @@
 
 Introducing "CodeChirps" - bite-sized code snippets for every digital nest builder out there, ready to help you soar through your coding journey! 🐦💻 #CodeChirps #FlyWithCode
 
+### GCheck
+A short script to login and check your gmail account. I was going to use this to auto reply to users responding to a "no-reply@" mailbox, only to realize, that they are also using auto responders. 😕
+
+```php
+    // Connect to gmail
+    $hostname = '{imap.gmail.com:993/imap/ssl}INBOX';
+    $username = file_get_contents('GmailSmtpUsername.secret');
+    $password = file_get_contents('GmailSmtpPassword.secret');
+
+    // Try to connect
+    $inbox = imap_open($hostname,$username ,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
+
+    // Grab pretty emails
+    $emails = imap_search($inbox,'ALL');
+    if($emails) {
+
+        // Put the newest emails on top
+        rsort($emails);
+
+        // Loop over emails
+        foreach($emails as $emailNumber) {
+
+            // Get information on this email */
+            $overview = imap_fetch_overview($inbox, $emailNumber, 0);
+
+            // Print email information
+            print $overview[0]->from . ' - ' . $overview[0]->subject . PHP_EOL;
+        }
+    }
+
+    // Close the connection
+    imap_close($inbox);
+```
+
 ### StreamGPT
 If you want to 😎 steam from OpenAI just like the big kids do🚀, here is how to do it with PHP from the command line 💻. #chatGPT4 #OpenAi #php #CodeChirps 🐦🤖✨
 ```php
